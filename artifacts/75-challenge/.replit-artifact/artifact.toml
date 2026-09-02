@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/75-challenge/"
+title = "75 Challenge"
+description = "A personal mobile companion for planning and tracking a customized 75-day challenge across three 25-day phases, including meals, chia pudding snacks, daily steps, workouts, and food boundaries."
+version = "1.0.0"
+id = "artifacts/75-challenge"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/75-challenge/" ]
+localPort = 23593
+
+[services.development]
+run = "pnpm --filter @workspace/75-challenge run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/75-challenge", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/75-challenge", "run", "serve" ]
+
+[services.env]
+PORT = "23593"
+BASE_PATH = "/75-challenge/"
